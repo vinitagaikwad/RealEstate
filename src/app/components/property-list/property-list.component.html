@@ -1,0 +1,32 @@
+<div>
+<div class="row">
+    <div class="col-sm-12">
+       <button class="btn btn-primary" (click)="add()">Add Properties</button>
+       <div [hidden]="!showForm"><add-to-list-form></add-to-list-form></div>
+        <div class="panel panel-default mt-30">
+            <div class="panel-body">
+                <div class="col-sm-4 pull-right mb-25">
+                    <label for="sort-field">Sort By</label>
+                    
+                    <select 
+                        class="form-control" 
+                        name="sort-field" 
+                        id="sort-field" 
+                        [(ngModel)]="sortField">
+                    <option 
+                      *ngFor="let field of sortFields" 
+                      [value]="field">
+                        {{ field }}
+                    </option>
+                  </select>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div *ngFor="let item of items | sortBy:[sortField]" class="col-lg-4 col-md-6 mb-4">
+        <property-item [item] = 'item'></property-item>
+    </div>
+    
+</div>
+</div>

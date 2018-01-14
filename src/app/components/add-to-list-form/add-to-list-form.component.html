@@ -1,0 +1,158 @@
+
+<div class="form-parent m-b-20 m-t-20">
+<div class="panel panel-default mt-30">
+  <div class="panel-heading">
+    <h4 class="pl-15">Add a Listing</h4>
+  </div>
+
+  <div class="panel-body">
+
+    <form #newPropertyForm="ngForm" (ngSubmit)="onSubmit(newPropertyForm.value)">
+      <div class="form-group col-4 pull-left">
+        <label for="address" class="">Address</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Address"
+          name="address"
+          ngModel
+          required #address="ngModel">
+          <div [hidden]="address.valid || address.pristine" class="alert alert-danger">
+            Adress is required
+          </div>
+      </div>
+      <div class="form-group col-4 pull-left">
+        <label for="price" class="">Price</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Price"
+          name="price"
+          ngModel
+          required #price="ngModel">
+          <div [hidden]="price.valid || price.pristine" class="alert alert-danger">
+            Price is required
+          </div>
+      </div>
+      <div class="form-group col-4 pull-left">
+        <label for="property-type" class="">Property Type</label>
+        <select
+          name="type"
+          id="property-type"
+          class="form-control"
+          ngModel
+          required #type="ngModel">
+          <option value="">Single</option>
+          <option
+            *ngFor="let type of propertyTypes"
+            [value]="type">
+              {{ type }}
+          </option>
+          <div [hidden]="type.valid || type.pristine" class="alert alert-danger">
+            Type is required
+          </div>
+        </select>
+      </div>
+      <div class="form-group col-6 pull-left">
+        <label for="description" class="">Desciption</label>
+        <textarea
+          type="text"
+          class="form-control"
+          placeholder="Description"
+          name="description"
+          ngModel
+          required #description="ngModel">
+        </textarea>
+        <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+          Description is required
+        </div>
+      </div>
+      <div class="form-group col-2 pull-left">
+        <label for="beds" class="">Beds</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Beds"
+          name="bedrooms"
+          ngModel
+          required #beds="ngModel">
+          <div [hidden]="beds.valid || beds.pristine" class="alert alert-danger">
+            Beds information is required
+          </div>
+      </div>
+      <div class="form-group col-2 pull-left">
+        <label for="baths" class="">Baths</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Baths"
+          name="bathrooms"
+          ngModel
+          required #baths="ngModel">
+          <div [hidden]="baths.valid || baths.pristine" class="alert alert-danger">
+            Baths information is required
+          </div>
+      </div>
+      <div class="form-group col-2 pull-left">
+        <label for="sqft" class="">SqFt</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="SqFt"
+          name="area"
+          ngModel
+          required #area="ngModel">
+          <div [hidden]="area.valid || area.pristine" class="alert alert-danger">
+            Area information is required
+          </div>
+      </div>
+      <div class="form-group col-2 pull-left">
+          <label for="noi" class="">NOI</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="NOI"
+            name="noi"
+            ngModel
+            required #noi="ngModel">
+            <div [hidden]="noi.valid || noi.pristine" class="alert alert-danger">
+              NOI information is required
+            </div>
+        </div>
+        <div class="form-group col-2 pull-left">
+            <label for="investment" class="">Investment</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Investment"
+              name="investment"
+              ngModel
+              required #investment="ngModel">
+              <div [hidden]="investment.valid || investment.pristine" class="alert alert-danger">
+                Investment is required
+              </div>
+          </div>
+          <div class="form-group col-2 pull-left">
+              <label for="rent" class="">Rent</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="rent"
+                name="rent"
+                ngModel
+                required #rent="ngModel">
+                <div [hidden]="rent.valid || rent.pristine" class="alert alert-danger">
+                  Rent information is required
+                </div>
+            </div>
+      <div class="form-group col-12 pull-left">
+        <button
+          class="btn btn-primary listing-button" [disabled]="!newPropertyForm.form.valid">
+            Add
+        </button>
+      </div>
+    </form>
+
+  </div>  
+</div>
+</div>

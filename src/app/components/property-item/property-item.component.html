@@ -1,0 +1,40 @@
+<div class="card h-100">
+    <div class="card-body">
+      <h4 class="card-title">
+        <span class="badge badge-primary">
+          {{ item.type }}
+        </span>
+      </h4>
+      <h3>
+        {{ item.price | currency:'USD':true }}
+      </h3>
+      <h4>
+          {{ item.address }}
+      </h4>
+     <hr>
+    
+    <div>
+      <div class="details" style="padding:10px;">
+        <ul>
+          <li>
+              Beds: {{ item.bedrooms }}
+          </li>
+          <li>
+              Baths: {{ item.bathrooms }}
+          </li>
+          <li>
+              sqFt: {{ item.area }}
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+    <a href="#"><img class="card-img-top" src="assets/images/{{ item.image }}.jpg" alt=""></a>
+    <div class="details" style="padding:10px;">
+      <ul>
+        <li>NOI: {{ item.noi }}</li>
+        <li>Investment: {{ item.investment }}</li>
+        <li>Rent: {{ item.rent }}</li>
+      </ul>
+    </div>
+  </div>
